@@ -1,0 +1,34 @@
+import { configureStore } from "@reduxjs/toolkit";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+
+import storage from "redux-persist/lib/storage";
+import camperReducer from "./Campers/CamperSlice";
+
+const camperPersistConfig = {
+  key: "camper",
+  storage,
+  whitelist: ["favorite"],
+};
+
+export const store = configureStore({
+  reducer: {
+    campers: persistReducer(camperPersistConfig, camperReducer),
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);
