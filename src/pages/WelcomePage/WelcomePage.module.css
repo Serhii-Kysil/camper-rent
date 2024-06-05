@@ -1,0 +1,26 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.title {
+  text-align: center;
+}
+.desc {
+  text-align: center;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 30px;
+  text-decoration: none;
+  justify-content: center;
+  color: var(--grey);
+  transition: var(--animation);
+}
+.link:hover,
+.link:focus {
+  gap: 8px;
+  color: var(--red);
+}

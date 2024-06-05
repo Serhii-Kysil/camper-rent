@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.link {
+  text-decoration: none;
+  color: var(--grey);
+  transition: var(--animation);
+  font-weight: bold;
+  font-size: 26px;
+}
+.link:hover,
+.link:focus {
+  color: var(--red);
+}
