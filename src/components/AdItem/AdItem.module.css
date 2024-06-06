@@ -1,0 +1,116 @@
+.itemContainer {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  width: 888px;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+}
+.photo {
+  width: 290px;
+  height: 310px;
+  border-radius: 10px;
+}
+.advList {
+  list-style: none;
+}
+.mainInfoBlock {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+.priceBlock {
+  display: flex;
+}
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.textBlock {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 24px;
+}
+.heartIcon {
+  width: 24px;
+  height: 24px;
+  fill: var(--main-text-color);
+  stroke: var(--main-text-color);
+}
+
+.btn {
+  border: none;
+  border-radius: 200px;
+  outline: none;
+  padding: 16px 40px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--red);
+  width: 166px;
+}
+.ratingSvg {
+  width: 16px;
+  height: 16px;
+  fill: #ffc531;
+}
+.rewiews {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.ratingBlock {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.location {
+  font-size: 16px;
+  line-height: 24px;
+}
+.locationSvg {
+  width: 16px;
+  height: 16px;
+}
+.locationBlock {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 526px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--grey);
+}
+.advList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.adItem {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background-color: var(--light-grey);
+}

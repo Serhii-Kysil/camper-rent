@@ -7,6 +7,7 @@
   --light-grey: #f2f4f7;
   --white: #f7f7f7;
   --animation: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--main-text-color);
 }
 h1,
 h2,

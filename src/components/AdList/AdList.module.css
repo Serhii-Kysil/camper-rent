@@ -1,5 +1,23 @@
-.container {
+.listContainer {
   width: 888px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.loadBtn {
+  display: flex;
+  justify-content: center;
+  border-radius: 200px;
+  width: 145px;
+  padding: 16px 32px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.05em;
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
+  margin-bottom: 100px;
+  border-color: rgba(71, 84, 103, 0.2);
+  background: var(--grey) 0.2;
 }
