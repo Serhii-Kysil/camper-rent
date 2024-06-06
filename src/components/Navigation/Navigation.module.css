@@ -3,7 +3,9 @@
   gap: 20px;
   padding: 10px;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  /* width: 1440px; */
 }
 .link {
   text-decoration: none;
