@@ -19,6 +19,10 @@ import { TbFridge } from "react-icons/tb";
 import { PiTelevisionSimple } from "react-icons/pi";
 import { LuShowerHead } from "react-icons/lu";
 import { MdMicrowave } from "react-icons/md";
+import { CiCalendar } from "react-icons/ci";
+import { Field, Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useId } from "react";
 
 export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
   const [activeTab, setActiveTab] = useState("features");
@@ -45,6 +49,29 @@ export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
   const handleTabChange = (newValue) => {
     setActiveTab(newValue);
   };
+
+  function formatStringValue(value) {
+    return value.replace(/(\d+)([a-zA-Z])/g, "$1 $2");
+  }
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .required("Name is required")
+      .min(3, "Minimum 3 characters")
+      .max(50, "Maximum 50 characters"),
+    email: Yup.string()
+      .required("Email is required")
+      .email("Invalid email format"),
+    date: Yup.date()
+      .required("Date is required")
+      .default(() => new Date()),
+    textarea: Yup.string(),
+  });
+
+  const nameField = useId();
+  const emailField = useId();
+  const dateField = useId();
+  const commentField = useId();
 
   return (
     <div className={css.backdrop} onClick={handleBackdropClick}>
@@ -214,23 +241,25 @@ export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
                     <ul className={css.detailsList}>
                       <li className={css.detailsItem}>
                         <span>Form</span>
-                        <span>{camper.form}</span>
+                        <span style={{ textTransform: "capitalize" }}>
+                          {camper.form}
+                        </span>
                       </li>
                       <li className={css.detailsItem}>
                         <span>Length</span>
-                        <span>{camper.length}</span>
+                        <span>{formatStringValue(camper.length)}</span>
                       </li>
                       <li className={css.detailsItem}>
                         <span>Width</span>
-                        <span>{camper.width}</span>
+                        <span>{formatStringValue(camper.width)}</span>
                       </li>
                       <li className={css.detailsItem}>
                         <span>Height</span>
-                        <span>{camper.height}</span>
+                        <span>{formatStringValue(camper.height)}</span>
                       </li>
                       <li className={css.detailsItem}>
                         <span>Tank</span>
-                        <span>{camper.tank}</span>
+                        <span>{formatStringValue(camper.tank)}</span>
                       </li>
                       <li className={css.detailsItem}>
                         <span>Consumption</span>
@@ -240,6 +269,77 @@ export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
                   </div>
                 </div>
               )}
+              <div className={css.formContainer}>
+                <Formik
+                  initialValues={{
+                    name: "",
+                    email: "",
+                    date: "",
+                    comment: "",
+                  }}
+                  validationSchema={validationSchema}
+                >
+                  <Form autoComplete="off" className={css.form}>
+                    <div className={css.formGroup}>
+                      <Field
+                        placeholder={"Name"}
+                        className={css.formFiled}
+                        type="text"
+                        name="name"
+                        id={nameField}
+                      />
+                      <ErrorMessage
+                        className={css.error}
+                        name="name"
+                        component="span"
+                      />
+                    </div>
+                    <div className={css.formGroup}>
+                      <Field
+                        placeholder={"Email"}
+                        className={css.formFiled}
+                        type="text"
+                        name="email"
+                        id={emailField}
+                      />
+                      <ErrorMessage
+                        className={css.error}
+                        name="email"
+                        component="span"
+                      />
+                    </div>
+                    <div className={css.formGroup}>
+                      <Field
+                        placeholder={"Boocking date"}
+                        className={css.formFiled}
+                        type="text"
+                        name="date"
+                        id={dateField}
+                      />
+                      <ErrorMessage
+                        className={css.error}
+                        name="date"
+                        component="span"
+                      />
+                      <CiCalendar className={css.calendarIcon} />
+                    </div>
+                    <div className={css.formGroup}>
+                      <Field
+                        placeholder={"Comment"}
+                        className={css.formFiled}
+                        type="text"
+                        name="textarea"
+                        id={commentField}
+                      />
+                      <ErrorMessage
+                        className={css.error}
+                        name="textarea"
+                        component="span"
+                      />
+                    </div>
+                  </Form>
+                </Formik>
+              </div>
             </div>
 
             <div className={css.form}></div>
