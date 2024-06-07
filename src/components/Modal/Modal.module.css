@@ -13,34 +13,37 @@
 .modal {
   position: relative;
   max-height: 90vh;
-  overflow-y: auto;
   background-color: #fff;
-  padding: 40px;
+  padding: 40px 16px 40px 40px;
   border-radius: 20px;
   width: 982px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   z-index: 101;
+  overflow: hidden;
+}
+.modalContent {
+  overflow-y: auto;
+  padding-right: 16px;
 }
 
-.modal::-webkit-scrollbar {
-  right: 10px;
-  position: absolute;
-  right: 16px;
+.modalContent::-webkit-scrollbar {
   width: 8px;
 }
-.modal::-webkit-scrollbar-thumb {
-  width: 8px;
+.modalContent::-webkit-scrollbar-thumb {
   background-color: #d9d9d9;
   border-radius: 7px;
 }
-.modal::-webkit-scrollbar-track {
+.modalContent::-webkit-scrollbar-track {
   background: transparent;
 }
 
+.headerBlock {
+  display: flex;
+  justify-content: space-between;
+}
 .closeButton {
-  position: absolute;
   width: 32px;
   height: 32px;
   top: 40px;
@@ -120,6 +123,9 @@
   color: var(--grey);
   font-size: 16px;
   line-height: 24px;
+}
+.featureReviews {
+  margin-top: 44px;
 }
 .tabs {
   border-bottom: 1px solid rgba(16, 24, 40, 0.2);
