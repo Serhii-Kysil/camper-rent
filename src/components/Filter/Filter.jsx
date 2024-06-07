@@ -1,6 +1,13 @@
 import { useState } from "react";
 import css from "./Filter.module.css";
 
+import { GrLocation } from "react-icons/gr";
+import { TbToolsKitchen2 } from "react-icons/tb";
+import { FaWind } from "react-icons/fa";
+import { TbAutomaticGearbox } from "react-icons/tb";
+import { PiTelevisionSimple } from "react-icons/pi";
+import { LuShowerHead } from "react-icons/lu";
+
 const Filter = () => {
   const [inputValue, setInputValue] = useState("");
 
@@ -13,14 +20,11 @@ const Filter = () => {
       <div className={css.locationContainer}>
         <p className={css.titles}>Location</p>
         <div className={css.inputCont}>
-          <svg
-            width={18}
-            height={20}
+          <GrLocation
             className={css.svgInput}
             style={{ opacity: inputValue ? 1 : 0.6 }}
-          >
-            <use href="/symbol-defs.svg#icon-map-pin"></use>
-          </svg>
+          />
+
           <input
             type="text"
             className={css.locationInput}
@@ -45,12 +49,7 @@ const Filter = () => {
                   className={css.checkInput}
                 />
                 <label htmlFor="ac" className={css.checkboxLabel}>
-                  <svg className={css.checkboxSvg}>
-                    <use
-                      href="/public/symbol-defs.svg#icon-Shower"
-                      className={css.checkboxIcon}
-                    ></use>
-                  </svg>
+                  <FaWind className={css.checkboxSvg} />
                   <span className={css.span}>AC</span>
                 </label>
               </li>
@@ -62,12 +61,7 @@ const Filter = () => {
                   className={css.checkInput}
                 />
                 <label htmlFor="automatic" className={css.checkboxLabel}>
-                  <svg className={css.checkboxSvg}>
-                    <use
-                      href="/public/symbol-defs.svg#icon-Automatic"
-                      className={css.checkboxIcon}
-                    ></use>
-                  </svg>
+                  <TbAutomaticGearbox className={css.checkboxSvg} />
                   <span className={css.span}>Automatic</span>
                 </label>
               </li>
@@ -79,12 +73,7 @@ const Filter = () => {
                   className={css.checkInput}
                 />
                 <label htmlFor="kitchen" className={css.checkboxLabel}>
-                  <svg className={css.checkboxSvg}>
-                    <use
-                      href="/public/symbol-defs.svg#icon-Kitchen"
-                      className={css.checkboxIcon}
-                    ></use>
-                  </svg>
+                  <TbToolsKitchen2 className={css.checkboxSvg} />
                   <span className={css.span}>Kitchen</span>
                 </label>
               </li>
@@ -96,12 +85,7 @@ const Filter = () => {
                   className={css.checkInput}
                 />
                 <label htmlFor="tv" className={css.checkboxLabel}>
-                  <svg className={css.checkboxSvg}>
-                    <use
-                      href="/public/symbol-defs.svg#icon-TV"
-                      className={css.checkboxIcon}
-                    ></use>
-                  </svg>
+                  <PiTelevisionSimple className={css.checkboxSvg} />
                   <span className={css.span}>TV</span>
                 </label>
               </li>
@@ -113,12 +97,7 @@ const Filter = () => {
                   className={css.checkInput}
                 />
                 <label htmlFor="shower" className={css.checkboxLabel}>
-                  <svg className={css.checkboxSvg}>
-                    <use
-                      href="/public/symbol-defs.svg#icon-Shower"
-                      className={css.checkboxIcon}
-                    ></use>
-                  </svg>
+                  <LuShowerHead className={css.checkboxSvg} />
                   <span className={css.span}>Shower/WC</span>
                 </label>
               </li>

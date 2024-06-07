@@ -9,6 +9,8 @@
   position: relative;
 }
 .svgInput {
+  width: 18px;
+  height: 20px;
   position: absolute;
   left: 18px;
   transition: var(--animation);

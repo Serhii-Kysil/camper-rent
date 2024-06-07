@@ -1,13 +1,48 @@
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../../redux/Campers/CamperSlice";
 import css from "./AdItem.module.css";
+import { Modal } from "../Modal/Modal";
+
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
+import { TbToolsKitchen2 } from "react-icons/tb";
+import { IoBedOutline } from "react-icons/io5";
+import { FaWind } from "react-icons/fa";
+import { TbAutomaticGearbox } from "react-icons/tb";
+import { MdOutlineLocalGasStation } from "react-icons/md";
+import { GrLocation } from "react-icons/gr";
 
 export const AdItem = ({ camper }) => {
-  console.log(camper);
-  const averageRating =
-    camper.reviews.reduce((acc, review) => acc + review.reviewer_rating, 0) /
-    camper.reviews.length;
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.campers.favorite);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const isFavorite = favorites.some((fav) => fav._id === camper._id);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(camper._id));
+    } else {
+      dispatch(addFavorite(camper));
+    }
+  };
+
+  const handleShowMoreClick = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "";
+  };
+
   const reviewCount = camper.reviews.length;
 
   const [country, city] = camper.location.split(", ");
+
   return (
     <div className={css.itemContainer}>
       <img src={camper.gallery[0]} alt="Camper photos" className={css.photo} />
@@ -17,24 +52,32 @@ export const AdItem = ({ camper }) => {
             <h3>{camper.name}</h3>
             <div className={css.priceBlock}>
               <p className={css.price}>€{camper.price}.00</p>
-              {/* <svg className={css.heartSvg}>
-              <use className={css.heartIcon} href="/public/heart.svg"></use>
-            </svg> */}
+
+              {isFavorite && (
+                <FaHeart
+                  onClick={handleFavoriteClick}
+                  className={css.filledHeart}
+                />
+              )}
+              {!isFavorite && (
+                <FaRegHeart
+                  className={css.heartSvg}
+                  onClick={handleFavoriteClick}
+                />
+              )}
             </div>
           </div>
           <div className={css.rewiews}>
             <div className={css.ratingBlock}>
               <svg className={css.ratingSvg}>
-                <use href="/public/symbol-defs.svg#icon-Rating"></use>
+                <use href="/symbol-defs.svg#icon-Rating"></use>
               </svg>
-              <span>
-                {averageRating.toFixed(1)} ({reviewCount} Reviews)
+              <span className={css.ratingText}>
+                {camper.rating}({reviewCount} Reviews)
               </span>
             </div>
             <div className={css.locationBlock}>
-              <svg className={css.locationSvg}>
-                <use href="/public/symbol-defs.svg#icon-map-pin"></use>
-              </svg>
+              <GrLocation className={css.locationSvg} />
               <p className={css.location}>
                 {city}, {country}
               </p>
@@ -45,47 +88,50 @@ export const AdItem = ({ camper }) => {
         <ul className={css.advList}>
           <li className={css.adItem}>
             <svg className={css.icon}>
-              <use href="/public/symbol-defs.svg#icon-Users"></use>
+              <use href="/symbol-defs.svg#icon-Users"></use>
             </svg>{" "}
             {camper.adults} adults
           </li>
           <li className={css.adItem}>
-            <svg className={css.icon}>
-              <use href="/public/symbol-defs.svg#icon-Automatic"></use>
-            </svg>{" "}
+            <TbAutomaticGearbox className={css.icon} />
             {camper.transmission}
           </li>
           <li className={css.adItem}>
-            <svg className={css.icon}>
-              <use href="/public/symbol-defs.svg#icon-Petrol"></use>
-            </svg>{" "}
+            <MdOutlineLocalGasStation className={css.icon} />
             {camper.engine}
           </li>
 
+          {camper.details.kitchen > 0 && (
+            <li className={css.adItem}>
+              <TbToolsKitchen2 className={css.icon} /> Kitchen
+            </li>
+          )}
+
           <li className={css.adItem}>
-            <svg className={css.icon}>
-              <use href="/public/symbol-defs.svg#icon-Kitchen"></use>
-            </svg>{" "}
-            Kitchen
-          </li>
-          <li className={css.adItem}>
-            <svg className={css.icon}>
-              <use href="/public/symbol-defs.svg#icon-Bed"></use>
-            </svg>{" "}
+            <IoBedOutline className={css.icon} />
             {camper.details.beds} beds
           </li>
-          <li className={css.adItem}>
-            <svg className={css.icon}>
-              <use href="/public/symbol-defs.svg#icon-ac"></use>
-            </svg>{" "}
-            AC
-          </li>
+          {camper.details.airConditioner > 0 && (
+            <li className={css.adItem}>
+              <FaWind className={css.icon} />
+              AC
+            </li>
+          )}
         </ul>
 
-        <button type="button" className={css.btn}>
-          {" "}
+        <button type="button" className={css.btn} onClick={handleShowMoreClick}>
           Show more
         </button>
+
+        {isModalOpen && (
+          <Modal
+            camper={camper}
+            reviewCount={reviewCount}
+            city={city}
+            country={country}
+            onClose={handleCloseModal}
+          />
+        )}
       </div>
     </div>
   );

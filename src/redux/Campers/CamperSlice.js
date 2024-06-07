@@ -10,14 +10,6 @@ const handleItemsRejected = (state, action) => {
   state.isItemsLoading = false;
   state.itemsError = action.payload;
 };
-const handleFavPending = (state) => {
-  state.isFavLoading = true;
-};
-
-const handleFavRejected = (state, action) => {
-  state.isFavLoading = false;
-  state.favError = action.payload;
-};
 
 const camperSlice = createSlice({
   name: "campers",
@@ -28,6 +20,16 @@ const camperSlice = createSlice({
     favorite: [],
     isFavLoading: false,
     favError: null,
+  },
+  reducers: {
+    addFavorite: (state, action) => {
+      state.favorite.push(action.payload);
+    },
+    removeFavorite: (state, action) => {
+      state.favorite = state.favorite.filter(
+        (camper) => camper._id !== action.payload
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -45,5 +47,6 @@ const camperSlice = createSlice({
   },
 });
 
+export const { addFavorite, removeFavorite } = camperSlice.actions;
 const camperReducer = camperSlice.reducer;
 export default camperReducer;
