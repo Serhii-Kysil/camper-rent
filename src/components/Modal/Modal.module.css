@@ -11,17 +11,34 @@
   z-index: 100;
 }
 .modal {
-  position: fixed;
+  position: relative;
+  max-height: 90vh;
   overflow-y: auto;
   background-color: #fff;
   padding: 40px;
   border-radius: 20px;
-  width: 80%;
+  width: 982px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   z-index: 101;
 }
+
+.modal::-webkit-scrollbar {
+  right: 10px;
+  position: absolute;
+  right: 16px;
+  width: 8px;
+}
+.modal::-webkit-scrollbar-thumb {
+  width: 8px;
+  background-color: #d9d9d9;
+  border-radius: 7px;
+}
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .closeButton {
   position: absolute;
   width: 32px;
@@ -29,6 +46,10 @@
   top: 40px;
   right: 40px;
   cursor: pointer;
+}
+.mainInfo {
+  display: flex;
+  flex-direction: column;
 }
 .name {
   font-size: 24px;
