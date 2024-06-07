@@ -23,6 +23,8 @@ import { MdMicrowave } from "react-icons/md";
 export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
   const [activeTab, setActiveTab] = useState("features");
 
+  console.log(camper);
+
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -108,103 +110,135 @@ export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
                 Reviews
               </button>
             </div>
-            <div className={css.details}>
+            <div className={css.moreInfo}>
               {activeTab === "features" && (
-                <ul className={css.advList}>
-                  {camper.adults && (
-                    <li className={css.adItem}>
-                      <svg className={css.icon}>
-                        <use href="/symbol-defs.svg#icon-Users"></use>
-                      </svg>{" "}
-                      {camper.adults} adults
-                    </li>
-                  )}
+                <div className={css.features}>
+                  <ul className={css.advList}>
+                    {camper.adults && (
+                      <li className={css.adItem}>
+                        <svg className={css.icon}>
+                          <use href="/symbol-defs.svg#icon-Users"></use>
+                        </svg>{" "}
+                        {camper.adults} adults
+                      </li>
+                    )}
 
-                  {camper.transmission && (
-                    <li className={css.adItem}>
-                      <TbAutomaticGearbox className={css.icon} />
-                      <p>{camper.transmission}</p>
-                    </li>
-                  )}
+                    {camper.transmission && (
+                      <li className={css.adItem}>
+                        <TbAutomaticGearbox className={css.icon} />
+                        <p>{camper.transmission}</p>
+                      </li>
+                    )}
 
-                  {camper.details.airConditioner > 0 && (
-                    <li className={css.adItem}>
-                      <FaWind className={css.icon} />
-                      <p>AC</p>
-                    </li>
-                  )}
+                    {camper.details.airConditioner > 0 && (
+                      <li className={css.adItem}>
+                        <FaWind className={css.icon} />
+                        <p>AC</p>
+                      </li>
+                    )}
 
-                  {camper.engine && (
-                    <li className={css.adItem}>
-                      <MdOutlineLocalGasStation className={css.icon} />
-                      {camper.engine}
-                    </li>
-                  )}
+                    {camper.engine && (
+                      <li className={css.adItem}>
+                        <MdOutlineLocalGasStation className={css.icon} />
+                        {camper.engine}
+                      </li>
+                    )}
 
-                  {camper.details.kitchen > 0 && (
-                    <li className={css.adItem}>
-                      <TbToolsKitchen2 className={css.icon} /> Kitchen
-                    </li>
-                  )}
+                    {camper.details.kitchen > 0 && (
+                      <li className={css.adItem}>
+                        <TbToolsKitchen2 className={css.icon} /> Kitchen
+                      </li>
+                    )}
 
-                  {camper.details.beds > 0 && (
-                    <li className={css.adItem}>
-                      <IoBedOutline className={css.icon} />
-                      {camper.details.beds} beds
-                    </li>
-                  )}
+                    {camper.details.beds > 0 && (
+                      <li className={css.adItem}>
+                        <IoBedOutline className={css.icon} />
+                        {camper.details.beds} beds
+                      </li>
+                    )}
 
-                  {camper.details.airConditioner > 0 && (
-                    <li className={css.adItem}>
-                      <TbAirConditioning className={css.icon} />
-                      {camper.details.airConditioner} airConditioner
-                    </li>
-                  )}
+                    {camper.details.airConditioner > 0 && (
+                      <li className={css.adItem}>
+                        <TbAirConditioning className={css.icon} />
+                        {camper.details.airConditioner} airConditioner
+                      </li>
+                    )}
 
-                  {camper.details.CD > 0 && (
-                    <li className={css.adItem}>
-                      <LiaCompactDiscSolid className={css.icon} /> CD
-                    </li>
-                  )}
+                    {camper.details.CD > 0 && (
+                      <li className={css.adItem}>
+                        <LiaCompactDiscSolid className={css.icon} /> CD
+                      </li>
+                    )}
 
-                  {camper.details.radio > 0 && (
-                    <li className={css.adItem}>
-                      <IoMdRadio className={css.icon} />
-                      Radio
-                    </li>
-                  )}
+                    {camper.details.radio > 0 && (
+                      <li className={css.adItem}>
+                        <IoMdRadio className={css.icon} />
+                        Radio
+                      </li>
+                    )}
 
-                  {camper.details.hob > 0 && (
-                    <li className={css.adItem}>
-                      <TbCooker className={css.icon} />
-                      {camper.details.hob} hob
-                    </li>
-                  )}
+                    {camper.details.hob > 0 && (
+                      <li className={css.adItem}>
+                        <TbCooker className={css.icon} />
+                        {camper.details.hob} hob
+                      </li>
+                    )}
 
-                  {camper.details.freezer > 0 && (
-                    <li className={css.adItem}>
-                      <TbFridge className={css.icon} /> freezer
-                    </li>
-                  )}
+                    {camper.details.freezer > 0 && (
+                      <li className={css.adItem}>
+                        <TbFridge className={css.icon} /> freezer
+                      </li>
+                    )}
 
-                  {camper.details.TV > 0 && (
-                    <li className={css.adItem}>
-                      <PiTelevisionSimple className={css.icon} /> TV
-                    </li>
-                  )}
+                    {camper.details.TV > 0 && (
+                      <li className={css.adItem}>
+                        <PiTelevisionSimple className={css.icon} /> TV
+                      </li>
+                    )}
 
-                  {camper.details.bathroom > 0 && (
-                    <li className={css.adItem}>
-                      <LuShowerHead className={css.icon} /> Bathroom
-                    </li>
-                  )}
+                    {camper.details.bathroom > 0 && (
+                      <li className={css.adItem}>
+                        <LuShowerHead className={css.icon} /> Bathroom
+                      </li>
+                    )}
 
-                  {camper.details.microwave > 0 && (
-                    <li className={css.adItem}>
-                      <MdMicrowave className={css.icon} /> Microwave
-                    </li>
-                  )}
-                </ul>
+                    {camper.details.microwave > 0 && (
+                      <li className={css.adItem}>
+                        <MdMicrowave className={css.icon} /> Microwave
+                      </li>
+                    )}
+                  </ul>
+                  <div className={css.details}>
+                    <h3 className={css.subTitle}>Vehicle details</h3>
+                    <hr className={css.line} />
+                    <ul className={css.detailsList}>
+                      <li className={css.detailsItem}>
+                        <span>Form</span>
+                        <span>{camper.form}</span>
+                      </li>
+                      <li className={css.detailsItem}>
+                        <span>Length</span>
+                        <span>{camper.length}</span>
+                      </li>
+                      <li className={css.detailsItem}>
+                        <span>Width</span>
+                        <span>{camper.width}</span>
+                      </li>
+                      <li className={css.detailsItem}>
+                        <span>Height</span>
+                        <span>{camper.height}</span>
+                      </li>
+                      <li className={css.detailsItem}>
+                        <span>Tank</span>
+                        <span>{camper.tank}</span>
+                      </li>
+                      <li className={css.detailsItem}>
+                        <span>Consumption</span>
+                        <span>{camper.consumption}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               )}
             </div>
 

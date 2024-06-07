@@ -149,7 +149,7 @@
   margin-bottom: -2px;
   z-index: 1;
 }
-.details {
+.moreInfo {
   margin-top: 44px;
   width: 430px;
   display: flex;
@@ -176,4 +176,37 @@
 .icon {
   width: 20px;
   height: 20px;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.subTitle {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.line {
+  height: 1px;
+  width: 100%;
+  color: var(--main-text-color);
+  opacity: 0.1;
+}
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
 }
