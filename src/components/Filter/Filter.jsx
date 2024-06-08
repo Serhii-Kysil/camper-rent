@@ -117,7 +117,7 @@ const Filter = () => {
                 <label htmlFor="van" className={css.radioLabel}>
                   <svg className={css.radioSvg}>
                     <use
-                      href="/public/symbol-defs.svg#icon-Van"
+                      href="/symbol-defs.svg#icon-Van"
                       className={css.radioIcon}
                     ></use>
                   </svg>
@@ -134,7 +134,7 @@ const Filter = () => {
                 <label htmlFor="fully" className={css.radioLabel}>
                   <svg className={css.radioSvg}>
                     <use
-                      href="/public/symbol-defs.svg#icon-FullyIntegrated"
+                      href="/symbol-defs.svg#icon-FullyIntegrated"
                       className={css.radioIcon}
                     ></use>
                   </svg>
@@ -151,7 +151,7 @@ const Filter = () => {
                 <label htmlFor="alcove" className={css.radioLabel}>
                   <svg className={css.radioSvg}>
                     <use
-                      href="/public/symbol-defs.svg#icon-AlcoveCamper"
+                      href="/symbol-defs.svg#icon-AlcoveCamper"
                       className={css.radioIcon}
                     ></use>
                   </svg>
