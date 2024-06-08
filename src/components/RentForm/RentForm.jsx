@@ -29,9 +29,7 @@ export const RentForm = () => {
         /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         "Invalid email format"
       ),
-    date: Yup.date()
-      .required("Date is required")
-      .default(() => new Date()),
+    date: Yup.string().required("Date is required"),
     textarea: Yup.string(),
   });
 
@@ -39,6 +37,11 @@ export const RentForm = () => {
     setStartDate(date);
     setFieldValue("date", date);
     setIsOpen(false);
+  };
+
+  const handleSubmit = (values) => {
+    console.log(values);
+    window.location.reload();
   };
 
   return (
@@ -57,9 +60,10 @@ export const RentForm = () => {
           comment: "",
         }}
         validationSchema={validationSchema}
+        onSubmit={handleSubmit}
       >
         {({ setFieldValue }) => (
-          <Form autoComplete="off" className={css.form}>
+          <Form autoComplete="off" className={css.form} action="/">
             <div className={css.fields}>
               <div className={css.formGroup}>
                 <Field
