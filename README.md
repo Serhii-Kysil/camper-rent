@@ -25,7 +25,7 @@ This project is a web application for a company that rents out campers in Ukrain
 - **React Router**: For client-side routing.
 - **Axios**: For making HTTP requests.
 - **MockAPI**: Mock backend service for handling API requests.
-- **CSS/SCSS**: For styling the application.
+- **CSS**: For styling the application.
 - **Vite**: Build tool for faster development.
 
 ## Getting Started
