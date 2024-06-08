@@ -17,8 +17,6 @@ This project is a web application for a company that rents out campers in Ukrain
 - **Persistent State**: The favorite status of a camper persists even after the page is refreshed.
 - **Pagination**: Initially loads 4 camper listings with a "Load More" button to fetch additional listings.
 - **Modal Windows**: Provides detailed information about each camper and includes a booking form with validation.
-- **Filtering Options**: Users can filter campers based on location, equipment, and type.
-- **Responsive Design**: The application is styled to be responsive and visually appealing.
 
 ## Technologies Used
 
@@ -27,7 +25,7 @@ This project is a web application for a company that rents out campers in Ukrain
 - **React Router**: For client-side routing.
 - **Axios**: For making HTTP requests.
 - **MockAPI**: Mock backend service for handling API requests.
-- **CSS/SCSS**: For styling the application.
+- **CSS**: For styling the application.
 - **Vite**: Build tool for faster development.
 
 ## Getting Started
