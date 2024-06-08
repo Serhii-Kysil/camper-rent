@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import css from "./FeaturesList.module.css";
 
 import { TbAutomaticGearbox } from "react-icons/tb";

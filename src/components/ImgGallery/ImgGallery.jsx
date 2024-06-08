@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import css from "./ImgGallery.module.css";
 
 export const ImgGallery = ({ camper }) => {

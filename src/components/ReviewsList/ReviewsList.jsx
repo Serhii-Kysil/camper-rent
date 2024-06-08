@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { ReviewItem } from "../ReviewItem/ReviewItem";
 import css from "./ReviewsList.module.css";
 

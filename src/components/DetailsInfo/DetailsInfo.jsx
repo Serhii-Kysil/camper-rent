@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import css from "./DetailsInfo.module.css";
 
 export const DetailsInfo = ({ camper }) => {

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import css from "./ReviewItem.module.css";
 
 export const ReviewItem = ({ review }) => {
