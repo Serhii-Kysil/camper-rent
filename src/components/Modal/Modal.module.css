@@ -146,3 +146,7 @@
   flex-direction: column;
   gap: 44px;
 }
+.reviews {
+  width: 430px;
+  display: flex;
+}

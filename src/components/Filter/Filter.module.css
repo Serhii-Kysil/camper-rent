@@ -157,4 +157,10 @@
   outline: none;
   border: none;
   background-color: var(--red);
+  transition: var(--animation);
+  cursor: pointer;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #d84343;
 }

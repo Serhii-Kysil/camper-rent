@@ -10,11 +10,10 @@ import { RentForm } from "../RentForm/RentForm";
 import { FeaturesList } from "../FeaturesList/FeaturesList";
 import { DetailsInfo } from "../DetailsInfo/DetailsInfo";
 import { ImgGallery } from "../ImgGallery/ImgGallery";
+import { ReviewsList } from "../ReviewsList/ReviewsList";
 
 export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
   const [activeTab, setActiveTab] = useState("features");
-
-  console.log(camper);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -96,6 +95,11 @@ export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
                 <div className={css.features}>
                   <FeaturesList camper={camper} />
                   <DetailsInfo camper={camper} />
+                </div>
+              )}
+              {activeTab === "reviews" && (
+                <div className={css.reviews}>
+                  <ReviewsList reviews={camper.reviews} />
                 </div>
               )}
 

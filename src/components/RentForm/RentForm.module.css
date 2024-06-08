@@ -84,6 +84,11 @@
   cursor: pointer;
   background-color: var(--red);
   border-radius: 200px;
+  transition: var(--animation);
+}
+.btn:hover,
+.btn:focus {
+  background-color: #d84343;
 }
 .datePickerWrapper {
   position: absolute;

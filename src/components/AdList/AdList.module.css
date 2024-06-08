@@ -20,4 +20,10 @@
   margin-bottom: 100px;
   border-color: rgba(71, 84, 103, 0.2);
   background: var(--grey) 0.2;
+  transition: var(--animation);
+}
+.loadBtn:hover,
+.loadBtn:focus {
+  border-color: var(--red);
+  background: transparent;
 }
