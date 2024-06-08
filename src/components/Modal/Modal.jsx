@@ -58,7 +58,7 @@ export const Modal = ({ camper, onClose, reviewCount, city, country }) => {
                   </p>
                 </div>
               </div>
-              <p className={css.price}>€{camper.price}.00</p>
+              <p className={css.price}>€{camper.price},00</p>
             </div>
             <RxCross2 className={css.closeButton} onClick={onClose} />
           </div>

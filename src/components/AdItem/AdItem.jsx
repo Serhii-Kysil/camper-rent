@@ -50,7 +50,7 @@ export const AdItem = ({ camper }) => {
           <div className={css.mainInfoBlock}>
             <h3>{camper.name}</h3>
             <div className={css.priceBlock}>
-              <p className={css.price}>€{camper.price}.00</p>
+              <p className={css.price}>€{camper.price},00</p>
 
               {isFavorite && (
                 <FaHeart
