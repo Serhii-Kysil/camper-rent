@@ -85,3 +85,9 @@
   background-color: var(--red);
   border-radius: 200px;
 }
+.datePickerWrapper {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 1000;
+}
